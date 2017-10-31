@@ -1,0 +1,97 @@
+Robert Mushtkot
+rmushkot
+pa3
+rmushkot@ucsc.edu
+
+Sparse.java - Takes in two n x n matrices, A and B, and prints the following operations to the output file: A, B, (1.5)A, A + B,
+ A + A, B - A, A - A, Transpose of A, A * B, and B * B. 
+
+Matrix.java - Matrix ADT that performes matrix operations on a Sparse matrix. Stores rows in a doubly linked list.  Operations such as scalar multiply, add, subtract, transpose, and multiply.
+
+List.java - List ADT that takes in objects an stores them in a doubly linked list. 
+
+MatrixTest.java - Client used for testing Matrix ADT operations.
+
+ListTest.java - Client used for testing List ADT operations.
+
+Makefile - Used to compile and clean all .java files in the directory.
+
+README - Some useful information! 
+
+
+How To run:
+Sparse.java takes two command line arguments giving the names of the input and output files, respectively. The input file will begin with a
+single line containing three integers n, a and b, separated by spaces. The second line will be blank, and the
+following a lines will specify the non-zero entries of an n x n matrix A. Each of these lines will contain a space separated list of three numbers: two integers and a double, giving the row, column, and value of the
+corresponding matrix entry. After another blank line, will follow b lines specifying the non-zero entries of an n x n matrix B.
+
+For Example 
+A = | 1.0 2.0 3.0 | and B = | 1.0 0.0 1.0 |
+    | 4.0 5.0 6.0 |         | 0.0 1.0 0.0 |
+    | 7.0 8.0 9.0 |         | 1.0 1.0 1.0 |
+
+are encoded by the following input file: 
+3 9 5
+
+1 1 1.0
+1 2 2.0
+1 3 3.0
+2 1 4.0
+2 2 5.0
+2 3 6.0
+3 1 7.0
+3 2 8.0
+3 3 9.0
+
+1 1 1.0
+1 3 1.0
+3 1 1.0
+3 2 1.0
+3 3 1.0
+
+Here is an example of what the output file should look like:
+
+A has 9 non-zero entries:
+1: (1, 1.0) (2, 2.0) (3, 3.0)
+2: (1, 4.0) (2, 5.0) (3, 6.0)
+3: (1, 7.0) (2, 8.0) (3, 9.0)
+
+B has 5 non-zero entries:
+1: (1, 1.0) (3, 1.0)
+3: (1, 1.0) (2, 1.0) (3, 1.0)
+
+(1.5)*A =
+1: (1, 1.5) (2, 3.0) (3, 4.5)
+2: (1, 6.0) (2, 7.5) (3, 9.0)
+3: (1, 10.5) (2, 12.0) (3, 13.5)
+
+A+B =
+1: (1, 2.0) (2, 2.0) (3, 4.0)
+2: (1, 4.0) (2, 5.0) (3, 6.0)
+3: (1, 8.0) (2, 9.0) (3, 10.0)
+
+A+A =
+1: (1, 2.0) (2, 4.0) (3, 6.0)
+2: (1, 8.0) (2, 10.0) (3, 12.0)
+3: (1, 14.0) (2, 16.0) (3, 18.0)
+
+B-A =
+1: (2, -2.0) (3, -2.0)
+2: (1, -4.0) (2, -5.0) (3, -6.0)
+3: (1, -6.0) (2, -7.0) (3, -8.0)
+
+A-A =
+
+Transpose(A) =
+1: (1, 1.0) (2, 4.0) (3, 7.0)
+2: (1, 2.0) (2, 5.0) (3, 8.0)
+3: (1, 3.0) (2, 6.0) (3, 9.0)
+
+A*B =
+1: (1, 4.0) (2, 3.0) (3, 4.0)
+2: (1, 10.0) (2, 6.0) (3, 10.0)
+3: (1, 16.0) (2, 9.0) (3, 16.0)
+
+B*B =
+1: (1, 2.0) (2, 1.0) (3, 2.0)
+3: (1, 2.0) (2, 1.0) (3, 2.0)
